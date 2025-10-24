@@ -22,3 +22,41 @@
 *       Implementera sedan ränteberäkningarna genom överskrivna metoder.
 */
 
+using _02_Bank;
+using _02_Bank.AccountTypes;
+using _02_Bank.Enum;
+
+var bank = new Bank("International KYH Bank");
+
+bank.AddAccount(
+    new DepositAccount(CustomerType.Individual, 2330, 4.5m).WithDraw(200.0m), // Testa uttag
+    new LoanAccount(CustomerType.Company, 10000m, 25).Deposit(2500.75m),    // Testa insättning
+    new LoanAccount(CustomerType.Individual, 444, 44),          // Ska strax tas bort
+    new MortgageAccount(CustomerType.Company, 2300, 15)
+   );
+
+Console.WriteLine(bank);
+
+bank.RemoveAccount(new LoanAccount(CustomerType.Individual, 444, 44));
+Console.WriteLine("\n\nAfter removal of account:");
+Console.WriteLine(bank);
+
+/* ------------ */
+
+Console.WriteLine(new DepositAccount(CustomerType.Individual, 2330, 45).CalculateInterestAmount(20));
+
+Console.WriteLine(new LoanAccount(CustomerType.Company, 250, 25).Deposit(250.23m).CalculateInterestAmount(15));
+
+Console.WriteLine(new MortgageAccount(CustomerType.Company, 2300, 15).CalculateInterestAmount(45) + "\n\n");
+
+/* ------------ */
+
+Console.WriteLine(new DepositAccount(CustomerType.Individual, 2330, 45));
+
+
+
+
+
+
+Console.Write("\n\nTryck på en tangent för att stänga fönstret");
+Console.ReadKey();

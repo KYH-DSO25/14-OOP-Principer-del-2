@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace _02_Bank.Interfaces;
-internal interface IDeposit
+﻿namespace _02_Bank.Interfaces;
+public interface IDeposit<T>
 {
+    T Deposit(decimal money);
 }
