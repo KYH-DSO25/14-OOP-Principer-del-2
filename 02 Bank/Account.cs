@@ -55,7 +55,7 @@ public abstract class Account : IEquatable<Account>
 
         info.AppendLine("Customer type: " + CustomerType);
         info.AppendLine("Balance: " + Balance);
-        info.AppendLine("Interest rate: " + InterestRate);
+        info.AppendLine("Interest rate: " + InterestRate + "\n");
 
         return info.ToString();
     }
